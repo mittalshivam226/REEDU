@@ -1,4 +1,7 @@
-- [x] Check git remote configuration
-- [x] Stage all changes (git add .)
-- [ ] Commit changes with message "Restructure project into monorepo"
-- [ ] Push to origin/main
+- [x] Update prisma/schema.prisma to use MySQL provider and env("DATABASE_URL")
+- [x] Create .env file with DATABASE_URL
+- [x] Add mysql2 dependency to apps/backend/package.json
+- [x] Install dependencies
+- [x] Run prisma generate
+- [x] Run prisma migrate dev
+- [x] Verify connection
