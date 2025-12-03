@@ -1,6 +1,5 @@
-# TODO: Push Project to GitHub Main Branch
+# TODO: Fix Errors in Listings Service and Controller
 
-- [x] Update .gitignore to ignore build artifacts (/dist/, prisma/dev.db)
-- [x] Add all changes to git
-- [x] Commit changes with message 'Update project'
-- [x] Push to origin main
+- [ ] Fix ListingsService.update method to handle tags and images properly
+- [ ] Fix ListingsService.remove method to check user ownership
+- [ ] Add update and delete endpoints in ListingsController

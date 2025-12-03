@@ -50,15 +50,30 @@ export class ListingsService {
   }
 
   async update(id: string, updateListingDto: any, userId: string) {
+    const { images, tags, ...listingData } = updateListingDto;
+    // First, delete existing images
+    await this.prisma.image.deleteMany({
+      where: { listingId: id },
+    });
     return this.prisma.listing.update({
       where: { id },
-      data: updateListingDto,
+      data: {
+        ...listingData,
+        tags: tags ? JSON.stringify(tags) : undefined,
+        images: images ? {
+          create: images.map((url: string) => ({ url })),
+        } : undefined,
+      },
+      include: {
+        user: true,
+        images: true,
+      },
     });
   }
 
   async remove(id: string, userId: string) {
     return this.prisma.listing.delete({
-      where: { id },
+      where: { id, userId },
     });
   }
 }

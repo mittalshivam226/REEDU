@@ -31,6 +31,14 @@ let ListingsController = class ListingsController {
     findOne(id) {
         return this.listingsService.findOne(id);
     }
+    update(id, updateListingDto, req) {
+        const userId = req.user['id'];
+        return this.listingsService.update(id, updateListingDto, userId);
+    }
+    remove(id, req) {
+        const userId = req.user['id'];
+        return this.listingsService.remove(id, userId);
+    }
 };
 exports.ListingsController = ListingsController;
 __decorate([
@@ -55,6 +63,25 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], ListingsController.prototype, "findOne", null);
+__decorate([
+    (0, common_1.Put)(':id'),
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __param(2, (0, common_1.Req)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, Object, Object]),
+    __metadata("design:returntype", void 0)
+], ListingsController.prototype, "update", null);
+__decorate([
+    (0, common_1.Delete)(':id'),
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Req)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:returntype", void 0)
+], ListingsController.prototype, "remove", null);
 exports.ListingsController = ListingsController = __decorate([
     (0, common_1.Controller)('listings'),
     __metadata("design:paramtypes", [listings_service_1.ListingsService])

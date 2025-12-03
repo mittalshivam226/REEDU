@@ -57,14 +57,28 @@ let ListingsService = class ListingsService {
         return null;
     }
     async update(id, updateListingDto, userId) {
+        const { images, tags, ...listingData } = updateListingDto;
+        await this.prisma.image.deleteMany({
+            where: { listingId: id },
+        });
         return this.prisma.listing.update({
             where: { id },
-            data: updateListingDto,
+            data: {
+                ...listingData,
+                tags: tags ? JSON.stringify(tags) : undefined,
+                images: images ? {
+                    create: images.map((url) => ({ url })),
+                } : undefined,
+            },
+            include: {
+                user: true,
+                images: true,
+            },
         });
     }
     async remove(id, userId) {
         return this.prisma.listing.delete({
-            where: { id },
+            where: { id, userId },
         });
     }
 };

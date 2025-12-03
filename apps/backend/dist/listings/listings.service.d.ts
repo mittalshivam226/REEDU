@@ -6,12 +6,12 @@ export declare class ListingsService {
     create(createListingDto: CreateListingDto, userId: string): Promise<{
         user: {
             id: string;
-            email: string;
-            password: string;
-            name: string;
-            role: string;
             createdAt: Date;
             updatedAt: Date;
+            name: string;
+            email: string;
+            password: string;
+            role: string;
         };
         images: {
             id: string;
@@ -20,28 +20,28 @@ export declare class ListingsService {
         }[];
     } & {
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
-        tags: string;
-        description: string | null;
         title: string;
+        description: string | null;
         price: number;
         condition: string;
         location: string;
+        tags: string;
         edition: string | null;
         isbn: string | null;
         userId: string;
+        createdAt: Date;
+        updatedAt: Date;
     }>;
     findAll(query: any): Promise<{
         tags: any;
         user: {
             id: string;
-            email: string;
-            password: string;
-            name: string;
-            role: string;
             createdAt: Date;
             updatedAt: Date;
+            name: string;
+            email: string;
+            password: string;
+            role: string;
         };
         images: {
             id: string;
@@ -49,27 +49,27 @@ export declare class ListingsService {
             listingId: string;
         }[];
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
-        description: string | null;
         title: string;
+        description: string | null;
         price: number;
         condition: string;
         location: string;
         edition: string | null;
         isbn: string | null;
         userId: string;
+        createdAt: Date;
+        updatedAt: Date;
     }[]>;
     findOne(id: string): Promise<{
         tags: any;
         user: {
             id: string;
-            email: string;
-            password: string;
-            name: string;
-            role: string;
             createdAt: Date;
             updatedAt: Date;
+            name: string;
+            email: string;
+            password: string;
+            role: string;
         };
         images: {
             id: string;
@@ -77,43 +77,58 @@ export declare class ListingsService {
             listingId: string;
         }[];
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
-        description: string | null;
         title: string;
+        description: string | null;
         price: number;
         condition: string;
         location: string;
         edition: string | null;
         isbn: string | null;
         userId: string;
+        createdAt: Date;
+        updatedAt: Date;
     }>;
     update(id: string, updateListingDto: any, userId: string): Promise<{
+        user: {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            name: string;
+            email: string;
+            password: string;
+            role: string;
+        };
+        images: {
+            id: string;
+            url: string;
+            listingId: string;
+        }[];
+    } & {
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
-        tags: string;
-        description: string | null;
         title: string;
+        description: string | null;
         price: number;
         condition: string;
         location: string;
+        tags: string;
         edition: string | null;
         isbn: string | null;
         userId: string;
+        createdAt: Date;
+        updatedAt: Date;
     }>;
     remove(id: string, userId: string): Promise<{
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
-        tags: string;
-        description: string | null;
         title: string;
+        description: string | null;
         price: number;
         condition: string;
         location: string;
+        tags: string;
         edition: string | null;
         isbn: string | null;
         userId: string;
+        createdAt: Date;
+        updatedAt: Date;
     }>;
 }

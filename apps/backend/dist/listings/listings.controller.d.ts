@@ -7,12 +7,12 @@ export declare class ListingsController {
     create(createListingDto: CreateListingDto, req: Request): Promise<{
         user: {
             id: string;
-            email: string;
-            password: string;
-            name: string;
-            role: string;
             createdAt: Date;
             updatedAt: Date;
+            name: string;
+            email: string;
+            password: string;
+            role: string;
         };
         images: {
             id: string;
@@ -21,28 +21,28 @@ export declare class ListingsController {
         }[];
     } & {
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
-        tags: string;
-        description: string | null;
         title: string;
+        description: string | null;
         price: number;
         condition: string;
         location: string;
+        tags: string;
         edition: string | null;
         isbn: string | null;
         userId: string;
+        createdAt: Date;
+        updatedAt: Date;
     }>;
     findAll(): Promise<{
         tags: any;
         user: {
             id: string;
-            email: string;
-            password: string;
-            name: string;
-            role: string;
             createdAt: Date;
             updatedAt: Date;
+            name: string;
+            email: string;
+            password: string;
+            role: string;
         };
         images: {
             id: string;
@@ -50,27 +50,27 @@ export declare class ListingsController {
             listingId: string;
         }[];
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
-        description: string | null;
         title: string;
+        description: string | null;
         price: number;
         condition: string;
         location: string;
         edition: string | null;
         isbn: string | null;
         userId: string;
+        createdAt: Date;
+        updatedAt: Date;
     }[]>;
     findOne(id: string): Promise<{
         tags: any;
         user: {
             id: string;
-            email: string;
-            password: string;
-            name: string;
-            role: string;
             createdAt: Date;
             updatedAt: Date;
+            name: string;
+            email: string;
+            password: string;
+            role: string;
         };
         images: {
             id: string;
@@ -78,15 +78,58 @@ export declare class ListingsController {
             listingId: string;
         }[];
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
-        description: string | null;
         title: string;
+        description: string | null;
         price: number;
         condition: string;
         location: string;
         edition: string | null;
         isbn: string | null;
         userId: string;
+        createdAt: Date;
+        updatedAt: Date;
+    }>;
+    update(id: string, updateListingDto: any, req: Request): Promise<{
+        user: {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            name: string;
+            email: string;
+            password: string;
+            role: string;
+        };
+        images: {
+            id: string;
+            url: string;
+            listingId: string;
+        }[];
+    } & {
+        id: string;
+        title: string;
+        description: string | null;
+        price: number;
+        condition: string;
+        location: string;
+        tags: string;
+        edition: string | null;
+        isbn: string | null;
+        userId: string;
+        createdAt: Date;
+        updatedAt: Date;
+    }>;
+    remove(id: string, req: Request): Promise<{
+        id: string;
+        title: string;
+        description: string | null;
+        price: number;
+        condition: string;
+        location: string;
+        tags: string;
+        edition: string | null;
+        isbn: string | null;
+        userId: string;
+        createdAt: Date;
+        updatedAt: Date;
     }>;
 }
