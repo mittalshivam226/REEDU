@@ -1,39 +1,27 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
 import { BookOpen, Search, Users, TrendingUp, Star, Clock } from 'lucide-react';
-import { ThemeToggle } from '@/components/theme-toggle';
+import { Header } from '@/components/header';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
 export default function Home() {
+  const [searchQuery, setSearchQuery] = useState('');
+  const router = useRouter();
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      router.push(`/listings?search=${encodeURIComponent(searchQuery.trim())}`);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
-      {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="flex items-center space-x-2">
-              <BookOpen className="h-8 w-8 text-blue-600" />
-              <span className="text-2xl font-bold text-gray-900">REEDU</span>
-            </div>
-            <nav className="flex space-x-4">
-              <Link href="/listings" className="text-gray-600 hover:text-gray-900">
-                Browse Books
-              </Link>
-              <Link href="/sell" className="text-gray-600 hover:text-gray-900">
-                Sell Books
-              </Link>
-              <Link href="/login" className="text-blue-600 hover:text-blue-800">
-                Login
-              </Link>
-              <Link href="/register" className="text-blue-600 hover:text-blue-800">
-                Sign Up
-              </Link>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       {/* Hero Section */}
       <motion.section

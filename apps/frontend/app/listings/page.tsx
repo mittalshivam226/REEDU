@@ -9,7 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
 import { BookOpen, MapPin, DollarSign, Search, Filter } from 'lucide-react';
-import { ThemeToggle } from '@/components/theme-toggle';
+import { Header } from '@/components/header';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { listingsApi, Listing } from '@/lib/api';
@@ -22,6 +22,9 @@ export default function ListingsPage() {
   const [condition, setCondition] = useState('');
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [totalListings, setTotalListings] = useState(0);
   const searchParams = useSearchParams();
   const { toast } = useToast();
 
@@ -74,28 +77,7 @@ export default function ListingsPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <Link href="/" className="flex items-center space-x-2">
-              <BookOpen className="h-8 w-8 text-blue-600" />
-              <span className="text-2xl font-bold text-gray-900">REEDU</span>
-            </Link>
-            <nav className="flex space-x-4">
-              <Link href="/listings" className="text-blue-600 font-medium">
-                Browse Books
-              </Link>
-              <Link href="/sell" className="text-gray-600 hover:text-gray-900">
-                Sell Books
-              </Link>
-              <Link href="/login" className="text-gray-600 hover:text-gray-900">
-                Login
-              </Link>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Search and Filters */}
