@@ -1,5 +1,6 @@
-# TODO: Fix Errors in Listings Service and Controller
+# TODO: Push Everything to Main Branch
 
-- [ ] Fix ListingsService.update method to handle tags and images properly
-- [ ] Fix ListingsService.remove method to check user ownership
-- [ ] Add update and delete endpoints in ListingsController
+- [ ] Remove .next directory from git tracking
+- [ ] Add remaining changes to staging
+- [ ] Commit the changes
+- [ ] Push to origin main
