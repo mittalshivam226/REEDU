@@ -1,4 +1,4 @@
-- [ ] Check git remote configuration
-- [ ] Stage all changes (git add .)
+- [x] Check git remote configuration
+- [x] Stage all changes (git add .)
 - [ ] Commit changes with message "Restructure project into monorepo"
 - [ ] Push to origin/main
