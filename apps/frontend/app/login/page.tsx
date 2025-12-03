@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { BookOpen, Eye, EyeOff } from 'lucide-react';
+import { Header } from '@/components/header';
 import { useAuth } from '@/components/providers/auth-provider';
 import { authApi, LoginDto } from '@/lib/api';
 import { useToast } from '@/hooks/use-toast';
