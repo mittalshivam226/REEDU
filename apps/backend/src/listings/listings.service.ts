@@ -7,9 +7,10 @@ export class ListingsService {
   constructor(private prisma: PrismaService) {}
 
   async create(createListingDto: CreateListingDto, userId: string) {
+    const { images, ...listingData } = createListingDto;
     return this.prisma.listing.create({
       data: {
-        ...createListingDto,
+        ...listingData,
         userId,
       },
     });
