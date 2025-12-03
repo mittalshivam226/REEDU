@@ -21,8 +21,8 @@ async function bootstrap() {
     .addTag('users')
     .addTag('listings')
     .build();
-  const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document);
+  const document = SwaggerModule.createDocument(app as any, config);
+  SwaggerModule.setup('api', app as any, document);
 
   await app.listen(3001);
 }
