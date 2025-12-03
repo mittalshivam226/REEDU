@@ -4,6 +4,14 @@ declare const JwtStrategy_base: new (...args: any[]) => Strategy;
 export declare class JwtStrategy extends JwtStrategy_base {
     private usersService;
     constructor(usersService: UsersService);
-    validate(payload: any): Promise<any>;
+    validate(payload: any): Promise<{
+        id: string;
+        email: string;
+        password: string;
+        name: string;
+        role: import(".prisma/client").$Enums.UserRole;
+        createdAt: Date;
+        updatedAt: Date;
+    }>;
 }
 export {};

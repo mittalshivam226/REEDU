@@ -17,9 +17,10 @@ let ListingsService = class ListingsService {
         this.prisma = prisma;
     }
     async create(createListingDto, userId) {
+        const { images, ...listingData } = createListingDto;
         return this.prisma.listing.create({
             data: {
-                ...createListingDto,
+                ...listingData,
                 userId,
             },
         });

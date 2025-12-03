@@ -3,7 +3,31 @@ import { CreateUserDto } from './dto/create-user.dto';
 export declare class UsersService {
     private prisma;
     constructor(prisma: PrismaService);
-    create(createUserDto: CreateUserDto): Promise<any>;
-    findByEmail(email: string): Promise<any>;
-    findById(id: string): Promise<any>;
+    create(createUserDto: CreateUserDto): Promise<{
+        id: string;
+        email: string;
+        password: string;
+        name: string;
+        role: import(".prisma/client").$Enums.UserRole;
+        createdAt: Date;
+        updatedAt: Date;
+    }>;
+    findByEmail(email: string): Promise<{
+        id: string;
+        email: string;
+        password: string;
+        name: string;
+        role: import(".prisma/client").$Enums.UserRole;
+        createdAt: Date;
+        updatedAt: Date;
+    }>;
+    findById(id: string): Promise<{
+        id: string;
+        email: string;
+        password: string;
+        name: string;
+        role: import(".prisma/client").$Enums.UserRole;
+        createdAt: Date;
+        updatedAt: Date;
+    }>;
 }
