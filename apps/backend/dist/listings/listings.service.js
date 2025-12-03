@@ -17,25 +17,44 @@ let ListingsService = class ListingsService {
         this.prisma = prisma;
     }
     async create(createListingDto, userId) {
-        const { images, ...listingData } = createListingDto;
+        const { images, tags, ...listingData } = createListingDto;
         return this.prisma.listing.create({
             data: {
                 ...listingData,
+                tags: JSON.stringify(tags || []),
                 userId,
+                images: {
+                    create: images?.map(url => ({ url })) || [],
+                },
+            },
+            include: {
+                user: true,
+                images: true,
             },
         });
     }
     async findAll(query) {
-        return this.prisma.listing.findMany({
+        const listings = await this.prisma.listing.findMany({
             where: query,
             include: { images: true, user: true },
         });
+        return listings.map(listing => ({
+            ...listing,
+            tags: JSON.parse(listing.tags || '[]'),
+        }));
     }
     async findOne(id) {
-        return this.prisma.listing.findUnique({
+        const listing = await this.prisma.listing.findUnique({
             where: { id },
             include: { images: true, user: true },
         });
+        if (listing) {
+            return {
+                ...listing,
+                tags: JSON.parse(listing.tags || '[]'),
+            };
+        }
+        return null;
     }
     async update(id, updateListingDto, userId) {
         return this.prisma.listing.update({

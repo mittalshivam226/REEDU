@@ -13,7 +13,7 @@ export declare class AuthService {
         id: string;
         email: string;
         name: string;
-        role: import(".prisma/client").$Enums.UserRole;
+        role: string;
         createdAt: Date;
         updatedAt: Date;
     }>;

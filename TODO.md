@@ -1,7 +1,6 @@
-- [x] Update prisma/schema.prisma to use MySQL provider and env("DATABASE_URL")
-- [x] Create .env file with DATABASE_URL
-- [x] Add mysql2 dependency to apps/backend/package.json
-- [x] Install dependencies
-- [x] Run prisma generate
-- [x] Run prisma migrate dev
-- [x] Verify connection
+# TODO: Push Project to GitHub Main Branch
+
+- [x] Update .gitignore to ignore build artifacts (/dist/, prisma/dev.db)
+- [ ] Add all changes to git
+- [ ] Commit changes with message 'Update project'
+- [ ] Push to origin main
