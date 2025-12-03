@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { BookOpen, Plus, LogOut, User, Settings, DollarSign, Package } from 'lucide-react';
+import { Header } from '@/components/header';
 import { useAuth } from '@/components/providers/auth-provider';
 import { listingsApi, Listing } from '@/lib/api';
 import { useToast } from '@/hooks/use-toast';
